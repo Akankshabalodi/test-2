@@ -23,10 +23,48 @@ public class Test2 {
 		driver.manage().timeouts().implicitlyWait(6,TimeUnit.SECONDS);
 		
 		driver.findElement(By.xpath("//a[contains(text(),'Sign in')]")).click();
+		driver.findElement(By.xpath("//input[@id='email_create']")).sendKeys("12345xyzabc@yahoo.com");
+		driver.findElement(By.xpath("//button[@class='btn btn-default button button-medium exclusive']")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//input[@id='id_gender2' and @value='2']")).click();
+		driver.findElement(By.xpath("//input[@id='customer_firstname']")).sendKeys("Akanksha");
+		driver.findElement(By.xpath("//input[@id='customer_lastname']")).sendKeys("Balodi");
+		driver.findElement(By.xpath("//input[@id='email']")).click();
+		driver.findElement(By.xpath("//input[@data-validate='isPasswd']")).sendKeys("Akanksha@123");
+		Select sel1 = new Select(driver.findElement(By.id("days")));
+		sel1.selectByValue("23");
 		
-		driver.findElement(By.xpath("(//input[@id='email'])[1]")).sendKeys("admin@xyz.com");
-		driver.findElement(By.xpath("//input[@id='passwd']")).sendKeys("admin@123");
-		driver.findElement(By.xpath("//button[@id='SubmitLogin']")).click();
+		Thread.sleep(8000);
+		Select sel = new Select(driver.findElement(By.id("months")));
+		sel.selectByValue("10");
+		
+		Thread.sleep(5000);
+		Select sel2 = new Select(driver.findElement(By.id("years")));
+		sel2.selectByValue("1993");
+		
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//input[@name='firstname']")).click();
+		driver.findElement(By.xpath("//input[@name='lastname']")).click();
+		driver.findElement(By.xpath("//input[@name='company']")).sendKeys("Pentairscanapp");
+		driver.findElement(By.xpath("//input[@id='address1']")).sendKeys("new thhipasandara");
+		driver.findElement(By.xpath("//input[@id='city']")).sendKeys("Bengaluru");
+		Select sel3 = new Select(driver.findElement(By.id("id_state")));
+		sel3.selectByValue("14");
+		
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//input[@id='postcode']")).sendKeys("56007");
+		
+		Select sel4 = new Select(driver.findElement(By.id("id_country")));
+		sel4.selectByValue("21");
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//input[@name='phone_mobile']")).sendKeys("1234567890");
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//input[@value='My address']")).sendKeys("abcxyz");
+		
+		driver.findElement(By.xpath("//button[@id='submitAccount']")).click();
+		
+		Thread.sleep(5000);
+		
 		driver.findElement(By.xpath("//i[@class='icon-home']")).click();
 		Actions action= new Actions(driver);
 		WebElement mouse_mv = driver.findElement(By.xpath("//a[@title='Women']"));
@@ -53,9 +91,10 @@ public class Test2 {
          Thread.sleep(8000);
          driver.findElement(By.xpath("//a[@title='Add to cart' and @data-id-product='6']")).click();
 		driver.findElement(By.xpath("//a[contains(@title,'Proceed to checkout')]")).click();
-		assertEquals("48.90", "48.90");
+		Thread.sleep(8000);
+		assertEquals("48.90","48.90");
 		driver.quit();
-		
+	
 	}
 }
 
