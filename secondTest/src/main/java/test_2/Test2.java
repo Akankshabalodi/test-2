@@ -23,7 +23,7 @@ public class Test2 {
 		driver.manage().timeouts().implicitlyWait(6,TimeUnit.SECONDS);
 		
 		driver.findElement(By.xpath("//a[contains(text(),'Sign in')]")).click();
-		driver.findElement(By.xpath("//input[@id='email_create']")).sendKeys("12345xyzabc@yahoo.com");
+		driver.findElement(By.xpath("//input[@id='email_create']")).sendKeys("1234exyzabc@yahoo.com");
 		driver.findElement(By.xpath("//button[@class='btn btn-default button button-medium exclusive']")).click();
 		Thread.sleep(8000);
 		driver.findElement(By.xpath("//input[@id='id_gender2' and @value='2']")).click();
@@ -76,7 +76,7 @@ public class Test2 {
 		WebElement productSort = driver.findElement(By.id("selectProductSort"));	
 		Select list = new Select(productSort);
 		list.selectByVisibleText("Price: Lowest first");
-		Thread.sleep(6000);
+		Thread.sleep(8000);
 		WebElement MV = driver.findElement(By.xpath("(//a[@title='Printed Chiffon Dress'])[2]"));
 		
 		action.moveToElement(MV).perform();
@@ -89,10 +89,10 @@ public class Test2 {
 		Actions action1= new Actions(driver);
 		action1.moveToElement(mouse_mv2).perform();
          Thread.sleep(8000);
-         driver.findElement(By.xpath("//a[@title='Add to cart' and @data-id-product='6']")).click();
+         driver.findElement(By.xpath("//a[@title='Add to cart' and @data-id-product='5']")).click();
 		driver.findElement(By.xpath("//a[contains(@title,'Proceed to checkout')]")).click();
 		Thread.sleep(8000);
-		assertEquals("48.90","48.90");
+		assertEquals("47.38","47.38");
 		driver.quit();
 	
 	}
